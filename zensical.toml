@@ -24,6 +24,15 @@ nav = [
   ] },
   { "Filtering" = [
     { "Recognizing Artifacts" = "filtering/recognizing-artifacts.md" },
+    { "Artifacts and Treatment" = [
+      { "Banding" = "filtering/artifacts/banding.md" },
+      { "Noise and Grain" = "filtering/artifacts/noise-and-grain.md" },
+      { "Blocking" = "filtering/artifacts/blocking.md" },
+      { "Aliasing" = "filtering/artifacts/aliasing.md" },
+      { "Ringing and Haloing" = "filtering/artifacts/ringing-and-haloing.md" },
+      { "Cross-Field Noise" = "filtering/artifacts/cross-field-noise.md" },
+      { "Levels and Range Errors" = "filtering/artifacts/range-errors.md" },
+    ] },
     { "General Techniques" = [
       { "Order of Operations" = "filtering/general/order.md" },
       { "Expressions" = "filtering/general/expressions.md" },

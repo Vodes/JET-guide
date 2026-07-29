@@ -99,7 +99,8 @@ for reasons outlined previously.
 
 Since every consumer source
 contains some degree of compression noise,
-denoising is recommended.
+[denoising](../artifacts/noise-and-grain.md) is recommended
+when the unwanted noise outweighs the detail loss.
 You may perform this step prior to descaling
 if the studio or authoring company
 added strong dithering in post
@@ -114,7 +115,7 @@ certain filterchains.
     A proper rescale will often deal with aliasing, ringing, and haloing artifacting.
     **NEVER** perform any of those three steps unless you're *absolutely* certain you must.
 
-Noise around edges may affect anti-aliasing,
+Noise around edges may affect [anti-aliasing](../artifacts/aliasing.md),
 so perform this step after denoising.
 Anti-aliasing should ideally be scene-filtered
 because it's a highly destructive filter
@@ -127,7 +128,7 @@ Only perform this step if your source actually has aliasing.
 Many top anti-aliasing filters
 might introduce mild ringing or haloing
 under certain conditions.
-It's safer to dering or dehalo
+It's safer to [dering or dehalo](../artifacts/ringing-and-haloing.md)
 after anti-aliasing.
 These are destructive processes,
 so only use them when absolutely necessary.
@@ -138,7 +139,7 @@ Similar to denoising,
 nearly every source exhibits
 some degree of banding
 due to compression.
-Avoid excessive debanding
+Avoid excessive [debanding](../artifacts/banding.md)
 to prevent unnecessary detail loss.
 A mild protective deband
 can be beneficial
@@ -146,7 +147,8 @@ if minimal banding is present.
 
 ### Redithering
 
-Redithering aids in preserving gradients during encoding,
+Redithering or [regraining](../artifacts/noise-and-grain.md#restoring-grain)
+aids in preserving gradients during encoding,
 especially since even 10-bit video
 doesn't have enough color depth
 to maintain all gradients flawlessly.

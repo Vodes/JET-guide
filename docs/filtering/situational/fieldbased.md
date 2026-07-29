@@ -551,6 +551,12 @@ and introduces artifacts.
 _Always_ identify the content type first
 to choose the appropriate processing method.
 
+Compression can also contaminate one field
+with information from the other.
+See [Cross-Field Noise](../artifacts/cross-field-noise.md)
+for diagnosis and repair
+after the field structure is understood.
+
 - **"The whole video must be the same type"**
 
 Professional content often mixes
