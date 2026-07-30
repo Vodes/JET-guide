@@ -1,0 +1,2486 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Various guides on encoding by JET">
+      
+      
+        <meta name="author" content="Jaded Encoding Thaumaturgy">
+      
+      
+        <link rel="canonical" href="https://jaded-encoding-thaumaturgy.github.io/JET-guide/artifacts/filtering/artifacts/noise-and-grain/">
+      
+      
+        <link rel="prev" href="../banding/">
+      
+      
+        <link rel="next" href="../blocking/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.51">
+    
+    
+      
+        <title>Noise and Grain - JET Encoding Guide</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.f62f0af6.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/fields.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#noise-and-grain" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JET Encoding Guide" class="md-header__button md-logo" aria-label="JET Encoding Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JET Encoding Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Noise and Grain
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/Jaded-Encoding-Thaumaturgy/JET-Guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JET Encoding Guide" class="md-nav__button md-logo" aria-label="JET Encoding Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JET Encoding Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Jaded-Encoding-Thaumaturgy/JET-Guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Basics
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Basics
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/python-primer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Python Primer
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting Started
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/common-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Common Errors
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/how-do-i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  How do I...?
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Source Preparation
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Source Preparation
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  DVDs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  DVDs
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sources/dvd/remuxing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Remuxing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Wobbly
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Wobbly
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sources/dvd/wobbly/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting Started
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Filtering
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Filtering
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recognizing-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Recognizing Artifacts
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Artifacts and Treatment
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Artifacts and Treatment
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../banding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banding
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Noise and Grain
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Noise and Grain
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recognizing-the-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recognizing the difference
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recognizing the difference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grain
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compression noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dct-and-mosquito-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DCT and mosquito noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-and-dither" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Texture and dither
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#should-it-be-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Should it be fixed?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-common-modern-anime-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A common modern-anime setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A common modern-anime setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#higher-quality-chroma-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Higher-quality chroma alternative
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvtools-and-motion-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MVTools and motion compensation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-useful-denoisers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other useful denoisers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chroma-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Chroma noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-grain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Restoring grain
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restoring grain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-grain-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Available grain types
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#side-effects-to-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Side effects to check
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Related pages
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Blocking
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aliasing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aliasing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ringing-and-haloing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ringing and Haloing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-field-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cross-Field Noise
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../range-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Levels and Range Errors
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  General Techniques
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  General Techniques
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Order of Operations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Expressions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Common Filtering
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Common Filtering
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Descaling
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Descaling
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common/descaling/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Theory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common/descaling/known-resolutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Known Resolutions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Situational Filtering
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Situational Filtering
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../situational/dehardsubbing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dehardsubbing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../situational/fieldbased/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Field-Based Video
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Encoding
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Encoding
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../encoding/x264/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  x264
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../encoding/x265/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  x265
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../encoding/svtav1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SVT-AV1
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Misc
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Misc
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comparison
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Additional Resources
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recognizing-the-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recognizing the difference
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recognizing the difference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grain
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compression noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dct-and-mosquito-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DCT and mosquito noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-and-dither" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Texture and dither
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#should-it-be-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Should it be fixed?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-common-modern-anime-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A common modern-anime setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A common modern-anime setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#higher-quality-chroma-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Higher-quality chroma alternative
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvtools-and-motion-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MVTools and motion compensation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-useful-denoisers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other useful denoisers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chroma-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Chroma noise
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-grain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Restoring grain
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restoring grain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-grain-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Available grain types
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#side-effects-to-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Side effects to check
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Related pages
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="noise-and-grain">Noise and Grain</h1>
+<p>“Noise” and “grain” both describe pixel variation,
+but they are not interchangeable diagnoses.
+The important question is whether the variation is
+intentional image structure,
+useful protection,
+or damage introduced by a source or encode.</p>
+<h2 id="recognizing-the-difference">Recognizing the difference</h2>
+<h3 id="grain">Grain</h3>
+<p>Grain may come from film,
+be added for a creative look,
+or be added to protect gradients during encoding.
+It usually forms a coherent texture across the image.
+Dynamic grain changes from frame to frame;
+static grain repeats.</p>
+<p>Film and creative grain are part of the intended appearance.
+Protective grain may be nearly invisible at normal size
+but still prevent <a href="../banding/">banding</a>.</p>
+<h3 id="compression-noise">Compression noise</h3>
+<p>Compression noise often looks blotchy,
+block-shaped,
+or unstable around edges and existing grain.
+It may pulse with keyframes or motion
+and can differ strongly between releases.</p>
+<h3 id="dct-and-mosquito-noise">DCT and mosquito noise</h3>
+<p>DCT noise collects around sharp transitions
+as small moving dots,
+false edges,
+or short ripples.
+It overlaps visually with <a href="../ringing-and-haloing/">ringing</a>
+and often accompanies <a href="../blocking/">blocking</a>
+in bitrate-starved material.</p>
+<h3 id="texture-and-dither">Texture and dither</h3>
+<p>Texture follows objects and surfaces.
+Dither is a deliberately distributed pattern
+used to disguise quantization.
+Pause,
+advance several frames,
+and compare other releases before deciding either is noise.</p>
+<h2 id="should-it-be-fixed">Should it be fixed?</h2>
+<p>Denoising trades unwanted variation for lost detail.
+Removing all grain is rarely a good target:
+it changes the image,
+can make animation look plastic,
+and may expose banding.</p>
+<p>A useful goal is to suppress the part
+that is ugly or disproportionately expensive to encode,
+then restore a controlled grain pattern if needed.
+Scenes with damaged encoded grain
+may require stronger local filtering than the rest of the video.</p>
+<h2 id="a-common-modern-anime-setup">A common modern-anime setup</h2>
+<p>The top-level <code>vsdenoise</code> documentation provides
+a chain that is commonly used
+and sufficient for most modern anime sources:</p>
+<p>References:
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/funcs/#vsdenoise.funcs.mc_degrain"><code>mc_degrain</code></a>,
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/prefilters/#vsdenoise.prefilters.Prefilter"><code>Prefilter</code></a>,
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/blockmatch/#vsdenoise.blockmatch.bm3d"><code>bm3d</code></a>,
+and <a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/nlm/#vsdenoise.nlm.nl_means"><code>nl_means</code></a>.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-28">28</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdenoise</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">MVToolsPreset</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">Prefilter</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">bm3d</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">mc_degrain</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">nl_means</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span style="color: #7F848E"># Build a motion-compensated reference.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span style="color: #E06C75">ref</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">mc_degrain</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span style="color: #E06C75">prefilter</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">Prefilter</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">DFTTEST</span><span style="color: #ABB2BF">(),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span style="color: #E06C75">preset</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">MVToolsPreset</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">HQ_SAD</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span style="color: #E06C75">thsad</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">100</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span style="color: #ABB2BF">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span style="color: #7F848E"># Denoise luma with BM3D.</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">bm3d</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span style="color: #E06C75">sigma</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.8</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span style="color: #E06C75">tr</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span style="color: #E06C75">profile</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">bm3d</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">Profile</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">NORMAL</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span style="color: #E06C75">ref</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">ref</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span style="color: #E06C75">planes</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span style="color: #ABB2BF">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span style="color: #7F848E"># Denoise chroma with NLMeans.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">nl_means</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span style="color: #E06C75">denoised</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span style="color: #E06C75">h</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.2</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span style="color: #E06C75">tr</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span style="color: #E06C75">ref</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">ref</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span style="color: #E06C75">planes</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">,</span> <span style="color: #D19A66">2</span><span style="color: #ABB2BF">],</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p>This combines a motion-compensated reference,
+BM3D for luma,
+and NLMeans for chroma.
+The values are a somewhat conservative starting point,
+not a preset that makes comparison unnecessary.
+Check dark gradients,
+line shading,
+and moving texture.</p>
+<h3 id="higher-quality-chroma-alternative">Higher-quality chroma alternative</h3>
+<p><a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/blockmatch/#vsdenoise.blockmatch.wnnm"><code>wnnm</code></a>
+is a slower block-matching denoiser
+that generally produces less blocking and ringing than BM3D.
+It can replace NLMeans as a higher-quality chroma option
+when the extra processing cost is acceptable.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdenoise</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">wnnm</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span style="color: #7F848E"># WNNM requires a 32-bit float clip and matching reference.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">wnnm</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span style="color: #E06C75">denoised</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span style="color: #E06C75">sigma</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.5</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span style="color: #E06C75">tr</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span style="color: #E06C75">ref</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">ref</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span style="color: #E06C75">planes</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">,</span> <span style="color: #D19A66">2</span><span style="color: #ABB2BF">],</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Do not switch only one input to float:
+the clip and reference passed to WNNM
+must have matching dimensions and format.</p>
+<h2 id="mvtools-and-motion-compensation">MVTools and motion compensation</h2>
+<p><a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/mvtools/mvtools/#vsdenoise.mvtools.mvtools.MVTools"><code>MVTools</code></a>
+estimates how blocks move between frames
+so temporal filtering can use aligned neighboring content.
+It is central to many serious denoising workflows,
+but its motion search and compensation controls
+are too broad for an artifact-recognition page.</p>
+<p><a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/funcs/#vsdenoise.funcs.mc_degrain"><code>mc_degrain</code></a>
+is the easier vsdenoise wrapper
+for a common MVTools degraining setup.
+It handles vector analysis,
+refinement,
+and degraining,
+and accepts <code>MVToolsPreset.HQ_SAD</code>
+or <code>MVToolsPreset.HQ_COHERENCE</code>.
+<code>HQ_SAD</code> is the wrapper's default.
+The presets are defined by
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/mvtools/presets/#vsdenoise.mvtools.presets.MVToolsPreset"><code>MVToolsPreset</code></a>.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdenoise</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">MVToolsPreset</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">Prefilter</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">mc_degrain</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">mc_degrain</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span style="color: #E06C75">prefilter</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">Prefilter</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">DFTTEST</span><span style="color: #ABB2BF">(),</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span style="color: #E06C75">preset</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">MVToolsPreset</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">HQ_SAD</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span style="color: #E06C75">thsad</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">100</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Motion compensation is not automatically safer than spatial filtering.
+Bad vectors can smear detail,
+drag noise through motion,
+or create discontinuities around scene changes.
+Use the wrapper unless the source gives you a concrete reason
+to configure <code>MVTools</code> directly.</p>
+<h2 id="other-useful-denoisers">Other useful denoisers</h2>
+<p><a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/nlm/#vsdenoise.nlm.nl_means"><code>nl_means</code></a>
+is also useful on its own,
+especially for chroma or spatially repetitive noise.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdenoise</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">nl_means</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">nl_means</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">h</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.8</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">tr</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p>For frequency-shaped noise,
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/fft/#vsdenoise.fft.DFTTest.denoise"><code>DFTTest.denoise</code></a>
+can target frequency bands more deliberately,
+but it requires source-specific tuning
+and is not a drop-in “better” denoiser.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdenoise</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">DFTTest</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">DFTTest</span><span style="color: #ABB2BF">()</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">denoise</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">sigma</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">8.0</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">tr</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="chroma-noise">Chroma noise</h2>
+<p>Chroma noise appears as colored blotches or crawling color
+and often benefits from processing only the chroma planes.
+The native YUV implementation in
+<a href="https://github.com/adworacz/zsmooth"><code>zsmooth</code></a>
+avoids an RGB round trip.
+Its direct <code>CCD</code> signature is documented in the
+<a href="https://github.com/adworacz/zsmooth#ccd"><code>zsmooth</code> filter reference</a>.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #7F848E"># A spatial starting point. Raise threshold only after comparison.</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span style="color: #E06C75">denoised</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">core</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">zsmooth</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">CCD</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">clip</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">threshold</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">2.0</span><span style="color: #ABB2BF">,</span> <span style="color: #E06C75">temporal_radius</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>zsmooth.CCD</code> and
+<a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdenoise/funcs/#vsdenoise.funcs.ccd"><code>vsdenoise.ccd</code></a>
+implementation
+do not use identical <code>scale</code> semantics.
+Do not transfer a tuned scale value blindly.</p>
+<h2 id="restoring-grain">Restoring grain</h2>
+<p>If denoising leaves the clip too flat
+or exposes quantization,
+add new dynamic grain after destructive filtering.</p>
+<p><a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeband/noise/#vsdeband.noise.Grainer"><code>Grainer</code></a>
+is a wrapper around
+the <a href="https://github.com/wwww-wwww/vs-noise"><code>vs-noise</code></a>
+grain generators.
+It adds useful processing around the raw noise layer,
+including:</p>
+<ul>
+<li>protection near legal sample-range limits</li>
+<li>optional protection for neutral chroma</li>
+<li>luma-adaptive masking through <code>luma_scaling</code></li>
+<li>temporal averaging and grain-size controls</li>
+<li>separate luma/chroma strengths and post-processing hooks</li>
+</ul>
+<p>These controls help prevent grain from being added blindly
+to every sample at the same strength.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vsdeband</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">import</span> <span style="color: #E06C75">Grainer</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span style="color: #E06C75">output</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">Grainer</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">GAUSS</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span style="color: #E06C75">denoised</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span style="color: #E06C75">strength</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.5</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span style="color: #E06C75">static</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">False</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span style="color: #E06C75">protect_edges</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">True</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span style="color: #E06C75">luma_scaling</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">4</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="available-grain-types">Available grain types</h3>
+<table>
+<thead>
+<tr>
+<th>Grainer member</th>
+<th>Generator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Grainer.GAUSS</code></td>
+<td>Gaussian noise</td>
+</tr>
+<tr>
+<td><code>Grainer.PERLIN</code></td>
+<td>Perlin noise</td>
+</tr>
+<tr>
+<td><code>Grainer.SIMPLEX</code></td>
+<td>Simplex noise</td>
+</tr>
+<tr>
+<td><code>Grainer.FBM_SIMPLEX</code></td>
+<td>Fractional Brownian motion over simplex noise</td>
+</tr>
+<tr>
+<td><code>Grainer.POISSON</code></td>
+<td>Poisson noise, intended for intensity-correlated grain</td>
+</tr>
+<tr>
+<td><code>Grainer.PLACEBO</code></td>
+<td>libplacebo grain rather than a <code>vs-noise</code> generator</td>
+</tr>
+</tbody>
+</table>
+<p>Perlin,
+simplex,
+and fractional Brownian motion
+allow more structured grain than Gaussian noise.
+For these types,
+use <code>size</code> to control their native grain scale:
+the <a href="https://jaded-encoding-thaumaturgy.github.io/vs-jetpack/api/vsdeband/noise/#vsdeband.noise.Grainer"><code>Grainer</code> reference</a>
+lists the controls supported by each generator.</p>
+<div class="highlight" style="background: #282C34"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #E06C75">output</span> <span style="color: #56B6C2">=</span> <span style="color: #E06C75">Grainer</span><span style="color: #56B6C2">.</span><span style="color: #E06C75">PERLIN</span><span style="color: #ABB2BF">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span style="color: #E06C75">denoised</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span style="color: #E06C75">strength</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">0.5</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span style="color: #E06C75">size</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">3.0</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span style="color: #E06C75">luma_scaling</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">4</span><span style="color: #ABB2BF">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span style="color: #ABB2BF">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>Grainer.PLACEBO</code> currently uses
+the transitional <code>vsdeband.placebo_deband</code> wrapper internally.
+Its availability may therefore change
+if that wrapper is removed.</p>
+<p>Try to match the source's size,
+strength,
+and brightness response.
+Inspect the luma-adaptive mask indirectly
+by comparing bright and dark regions,
+and disable or retune protections
+only when the source calls for it.
+Do not use new grain to hide avoidable filtering damage.</p>
+<h2 id="side-effects-to-check">Side effects to check</h2>
+<ul>
+<li>Loss of fine texture or line shading</li>
+<li>Wax-like flat areas</li>
+<li>Ghosting or trails from temporal filtering</li>
+<li>Grain that changes character between filtered and unfiltered scenes</li>
+<li>Newly visible banding</li>
+</ul>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="../banding/">Banding</a></li>
+<li><a href="../blocking/">Blocking</a></li>
+<li><a href="../ringing-and-haloing/">Ringing and haloing</a></li>
+<li><a href="../../../misc/comparison/">Comparison</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","content.code.select","navigation.expand"],"search":"../../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
