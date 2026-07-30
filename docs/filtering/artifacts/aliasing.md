@@ -1,8 +1,7 @@
 # Aliasing
 
 Aliasing appears as stair steps,
-jagged edges,
-broken diagonals,
+jagged edges, broken diagonals,
 or lines that shimmer during motion.
 It occurs when the sampled image
 cannot represent the original high-frequency shape correctly.
